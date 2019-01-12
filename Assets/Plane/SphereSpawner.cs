@@ -23,7 +23,7 @@ public class SphereSpawner : MonoBehaviour {
 		currentCollider.ApplyParameters();
 		currentCollider.transform.position = new Vector3(
 			currentCollider.transform.position.x,
-			transform.position.y - 7.5f,
+			transform.position.y - 10f,
 			currentCollider.transform.position.z);
 		currentCollider.GetComponent<Collider>().enabled = true;
 

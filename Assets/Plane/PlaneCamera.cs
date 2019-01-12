@@ -7,6 +7,8 @@ public class PlaneCamera : MonoBehaviour {
 
 	public Transform plane;
 	public Vector3 objectivePos;
+	public Vector3 cameraVelocity;
+	public float offsetY;
 	public float speed;
 	private void Awake() {
 		plane = GameObject.Find("Plane").transform;
@@ -18,8 +20,12 @@ public class PlaneCamera : MonoBehaviour {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 	private void FixedUpdate() {
-		objectivePos.y = Mathf.Lerp(transform.position.y, plane.position.y, speed * Time.deltaTime);
+		objectivePos.y = Mathf.Lerp(transform.position.y, plane.position.y - offsetY, speed * Time.deltaTime);
 		if(objectivePos.y < transform.position.y)
-			transform.position = objectivePos;
+			transform.position = Vector3.SmoothDamp(
+				transform.position,
+				objectivePos,
+				ref cameraVelocity,
+				0.0001f);
 	}
 }
