@@ -20,6 +20,8 @@ public class Drager : MonoBehaviour
 	public GameObject lookingObject;
 	public GameObject selectedObject;
 	public Transform cursor;
+	public Vector3 cameraVelocity;
+	public Vector3 cursorVelocity;
 	public float speed;
 	public float rotationMultiplier;
 	public float thickness;
@@ -43,13 +45,15 @@ public class Drager : MonoBehaviour
 
 	private void Update() 
 	{
-		if(Input.GetKeyDown(KeyCode.D) && selectedObject) {
+		if(Input.GetKeyDown(KeyCode.Space) && selectedObject) {
 			DropObject();
+			return;
 		}
 		
-		if(Input.GetKey(KeyCode.Space) && lookingObject && !selectedObject)
+		if(Input.GetKeyDown(KeyCode.Space) && lookingObject && !selectedObject)
 		{
 			TakeObject(lookingObject);
+			return;
 		}
 
 		offsetPosition = new Vector3(posX.value, posY.value, posZ.value);
@@ -69,25 +73,25 @@ public class Drager : MonoBehaviour
 
 			if(selectedObject) 
 			{
-				selectedObject.transform.position = Vector3.Lerp(
+				selectedObject.transform.position = Vector3.SmoothDamp(
 					selectedObject.transform.position, 
 					pos,
-					Time.deltaTime * speed);
+					ref cameraVelocity,
+					0.3f);
 			}
 			
 			if(cursor)
 			{
-				cursor.position = Vector3.Lerp(
+				cursor.position = Vector3.SmoothDamp(
 					cursor.position,
 					pos,
-					Time.deltaTime * speed);
+					ref cursorVelocity,
+					0.3f);
 			}
 		}
 
 		if(headPose.IsValid)
 		{
-			Debug.Log(headPose.Rotation.x);
-
 			if (headPose.Rotation.x >= 0.05f && !isHeadDown && lookingObject) 
 			{
 				isHeadDown = true;
@@ -101,7 +105,7 @@ public class Drager : MonoBehaviour
 				isHeadDown = false;
 			}
 
-			camera.transform.rotation = Quaternion.Lerp(
+			camera.transform.rotation = Quaternion.Slerp(
 					camera.transform.rotation,
 					new Quaternion(
 						headPose.Rotation.x * rotationMultiplier, 
@@ -123,15 +127,35 @@ public class Drager : MonoBehaviour
 	
 	public void DropObject() 
 	{
-		selectedObject.GetComponent<Rigidbody>().isKinematic = false;
 		selectedObject.GetComponent<Renderer>().material.SetInt("_Selected", 0);
 		
-		selectedObject.transform.position = new Vector3(
+		Vector3 objectivePosition = new Vector3(
 			selectedObject.transform.position.x, 
 			selectedObject.transform.position.y, 
 			tempZ);
 
+		StartCoroutine(MoveObject(objectivePosition, selectedObject.transform));
+
 		selectedObject = null;
+	}
+
+	public IEnumerator MoveObject(Vector3 objectivePosition, Transform gObject)
+	{
+		Vector3 initialPosition = gObject.position;
+		Vector3 objectVelocity = Vector3.zero;
+
+		while(Vector3.Distance(gObject.position, objectivePosition) > 0.1f)
+		{
+			Debug.Log(Vector3.Distance(initialPosition, objectivePosition));
+			gObject.position = Vector3.SmoothDamp(
+				gObject.position,
+				objectivePosition,
+				ref objectVelocity,
+				0.3f
+			);
+			yield return null;
+		}
+		gObject.GetComponent<Rigidbody>().isKinematic = false;
 	}
 
 	public void Raycast2D(Vector3 pos) 
