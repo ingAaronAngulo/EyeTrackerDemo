@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,8 +89,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_LightingDataAsset: {fileID: 112000002, guid: d443bccf00a172d459073b47f2686163,
+    type: 2}
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -216,7 +217,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &402380569
 Light:
@@ -247,7 +248,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -372,6 +373,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   camera: {fileID: 0}
   initialPosition: {x: 0, y: 0, z: 0}
+  laserVelocity: {x: 0, y: 0, z: 0}
   laserRegeneration: 0.1
   laserDegeneration: 0.005
   laserLimit: 1
@@ -5431,6 +5433,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   camera: {fileID: 0}
   initialPosition: {x: 0, y: 0, z: 0}
+  laserVelocity: {x: 0, y: 0, z: 0}
   laserRegeneration: 0.1
   laserDegeneration: 0.005
   laserLimit: 1
@@ -10224,7 +10227,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1872644270
 MeshCollider:

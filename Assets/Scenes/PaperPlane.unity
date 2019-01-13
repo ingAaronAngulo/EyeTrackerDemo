@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 9a4646fe21e3c35449b02265d2fac882,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -241,6 +242,18 @@ Prefab:
       propertyPath: m_Name
       value: PlaneCollider (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1483350171633936, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294498507765098, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184726815240076, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
   m_IsPrefabAsset: 0
@@ -264,7 +277,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &346349687
 Light:
@@ -459,6 +472,18 @@ Prefab:
       propertyPath: m_Name
       value: PlaneCollider (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1294498507765098, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483350171633936, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184726815240076, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
   m_IsPrefabAsset: 0
@@ -586,7 +611,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1110488930
 Transform:
@@ -671,7 +696,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1211634828
 Transform:
@@ -787,6 +812,18 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1184726815240076, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294498507765098, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483350171633936, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
   m_IsPrefabAsset: 0
@@ -833,6 +870,18 @@ Prefab:
       propertyPath: m_Name
       value: PlaneCollider (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1294498507765098, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483350171633936, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184726815240076, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
   m_IsPrefabAsset: 0
@@ -851,7 +900,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &1509023608
 MonoBehaviour:
@@ -952,6 +1001,18 @@ Prefab:
     - target: {fileID: 1483350171633936, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
       propertyPath: m_Name
       value: PlaneCollider (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184726815240076, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483350171633936, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294498507765098, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc147c49ebec41a48ace48a5031f48b3, type: 2}
@@ -1277,7 +1338,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2144905994
 Transform:

@@ -12,6 +12,7 @@ public class Laser : MonoBehaviour {
 	public GazePoint gazePoint;
 	public Camera camera;
 	public Vector3 initialPosition;
+	public Vector3 laserVelocity;
 	public float laserRegeneration;
 	public float laserDegeneration;
 	public float laserLimit;
@@ -36,10 +37,11 @@ public class Laser : MonoBehaviour {
 			emissionModule.enabled = true;
 			var pos = camera.ScreenToWorldPoint(new Vector3(gazePoint.Screen.x,gazePoint.Screen.y, 10));
 			var fixedPos = new Vector3(pos.x, pos.y, 0);
+			var smoothPosition = Vector3.SmoothDamp(laser.GetPosition(1), fixedPos, ref laserVelocity, 0.3f);
 			
-			particlePosition.position = new Vector3(fixedPos.x - transform.position.x, fixedPos.y, fixedPos.z);;
-			laser.SetPosition(1, fixedPos);
-			collider.center = new Vector3(fixedPos.x - transform.position.x, fixedPos.y, fixedPos.z);
+			particlePosition.position = new Vector3(smoothPosition.x - transform.position.x, smoothPosition.y, smoothPosition.z);;
+			laser.SetPosition(1, smoothPosition);
+			collider.center = new Vector3(smoothPosition.x - transform.position.x, smoothPosition.y, smoothPosition.z);
 			laser.widthMultiplier -= laserDegeneration;
 			collider.size = new Vector3(laser.widthMultiplier, laser.widthMultiplier, laser.widthMultiplier);
 		}
