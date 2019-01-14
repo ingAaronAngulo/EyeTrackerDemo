@@ -27,33 +27,24 @@ public class SpaceShip : Entity {
 			health[i] = GameObject.Find("IHealth" + i);
 	}
 
+	private void Update() {
+		if(Input.GetMouseButtonDown(0))
+			Shot();
+	}
+
 	private void FixedUpdate() {
-		#if UNITY_ANDROID
-			if(isGyroActivated)
-				rBody.velocity = new Vector2(Input.acceleration.x * horizontalSpeed, verticalSpeed);
-			else
-				rBody.velocity = new Vector2(axis * horizontalSpeed, verticalSpeed);
-		#endif
-		#if UNITY_EDITOR
-			if(Input.GetMouseButtonDown(0))
-				Shot();
-			headPose = TobiiAPI.GetHeadPose();
-			if(headPose.IsValid)
-			{
-				rBody.velocity = new Vector2(headPose.Rotation.y * horizontalSpeed, verticalSpeed);
-			}
-			//rBody.velocity = new Vector2(Input.GetAxis("Horizontal") * horizontalSpeed, verticalSpeed);
-		#endif
-		#if UNITY_STANDALONE
-			if(Input.GetMouseButtonDown(0))
-				Shot();
-			headPose = TobiiAPI.GetHeadPose();
-			if(headPose.IsValid)
-			{
-				rBody.velocity = new Vector2(headPose.Rotation.y * horizontalSpeed, verticalSpeed);
-			}
-			//rBody.velocity = new Vector2(Input.GetAxis("Horizontal") * horizontalSpeed, verticalSpeed);
-		#endif
+		headPose = TobiiAPI.GetHeadPose();
+		if(headPose.IsValid)
+		{
+			rBody.velocity = new Vector2(headPose.Rotation.y * horizontalSpeed, verticalSpeed);
+		}
+
+		headPose = TobiiAPI.GetHeadPose();
+		if(headPose.IsValid)
+		{
+			rBody.velocity = new Vector2(headPose.Rotation.y * horizontalSpeed, verticalSpeed);
+		}
+
 		direction.y += verticalSpeed;
 	}
 

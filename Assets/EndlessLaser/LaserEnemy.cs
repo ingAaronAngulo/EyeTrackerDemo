@@ -8,7 +8,6 @@ public class LaserEnemy : MonoBehaviour {
 	public Vector3 objective;
 	public Renderer renMaterial;
 	public Color initialColor;
-	public Vector3 velocity;
 	public float damageMultiplier;
 	public float health;
 	public float speed;
@@ -44,7 +43,7 @@ public class LaserEnemy : MonoBehaviour {
 
 	private void FixedUpdate() {
 		if(objective != null)
-			transform.position = Vector3.SmoothDamp(transform.position, objective, ref velocity, speed);
+			transform.position = Vector3.MoveTowards(transform.position, objective, speed);
 		else
 			objective = GameObject.Find("LaserEye" + Random.Range(1, 3)).transform.GetChild(0).position;
 	}
